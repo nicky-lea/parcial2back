@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Clase</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Añade tu archivo CSS -->
+</head>
+<body>
+<h1>Crear Nueva Clase</h1>
+<form action="/admin/clases" method="POST">
+    <div>
+        <label for="name">Nombre de la Clase:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea>
+    </div>
+    <div>
+        <label for="hent">Hora de Entrada:</label>
+        <input type="time" id="hent" name="hent" required>
+    </div>
+    <div>
+        <label for="hsal">Hora de Salida:</label>
+        <input type="time" id="hsal" name="hsal" required>
+    </div>
+    <div>
+        <label for="salon">Salón:</label>
+        <input type="text" id="salon" name="salon" required>
+    </div>
+    <div>
+        <label for="userId">Seleccionar Docente:</label>
+        <select id="userId" name="userId" required>
+            <option value="">Seleccionar Docente</option>
+            <th:block th:each="user : ${user}">
+                <option th:value="${user.id}" th:text="${user.name}"></option>
+            </th:block>
+        </select>
+    </div>
+    <button type="submit">Crear Clase</button>
+</form>
+</body>
+</html>
+
+

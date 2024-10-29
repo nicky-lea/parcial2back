@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Clase</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Editar Clase</h2>
+
+    <form th:action="@{/docente/editar/{id}(id=${clase.id})}" method="post">
+        <div class="form-group">
+            <label for="hent">Hora de Entrada:</label>
+            <input type="time" class="form-control" id="hent" name="hent" th:value="${clase.hent}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="hsal">Hora de Salida:</label>
+            <input type="time" class="form-control" id="hsal" name="hsal" th:value="${clase.hsal}" required>
+        </div>
+
+        <input type="hidden" name="id" th:value="${clase.id}" />
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a class="btn btn-secondary" th:href="@{/clases}">Cancelar</a>
+    </form>
+</div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
